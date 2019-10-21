@@ -1,0 +1,29 @@
+{% extends "../index.njk" %}
+
+{% block content %}
+  <div class="pricing-header py-3 pb-md-4 mx-auto">
+    <h3 class="display-5">Listagem de Empregados</h3>
+  </div>
+  <table class="table table-sm">
+    <thead>
+      <tr>
+        {% for field in data.fields %}
+          <th scope="col">{{ field.name }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in data.rows %}
+        <tr>
+          {% for field in data.fields %}
+            {% if field.name == 'dtnascimento' %}
+              <td scope="row">{{ row[field.name].toLocaleDateString("pt-BR") }}</th>
+            {% else %}
+              <td scope="row">{{ row[field.name] }}</th>
+            {% endif %}
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

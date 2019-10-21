@@ -1,0 +1,30 @@
+{
+  "name": "sistema-bd-node",
+  "version": "1.0.0",
+  "description": "Sistema desenvolvido em nodejs para persistir a base de dados da Avaliação 1 da disciplina de banco de dados.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davir8/sistema-bd-node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davir8/sistema-bd-node/issues"
+  },
+  "homepage": "https://github.com/davir8/sistema-bd-node#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "nunjucks": "^3.2.0",
+    "pg": "^7.12.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
