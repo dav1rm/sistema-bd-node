@@ -1,0 +1,46 @@
+{% extends "../index.njk" %}
+
+{% block content %}
+  <div class="pricing-header py-3 pb-md-4 mx-auto">
+    <h3 class="display-5">Cadastro de Dependente</h3>
+  </div>
+  <form action="/dependentes/store" method="post">
+    <div class="form-row">
+      <div class="form-group col-md-2">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" id="nome" name="nome" placeholder="Ex: Maria">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="parentesco">Parentesco</label>
+        <input type="text" class="form-control" id="parentesco" name="parentesco" placeholder="Ex: Filho">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="nascimento">Data de Nascimento</label>
+        <input type="date" class="form-control" id="nascimento" name="nascimento" placeholder="Ex: 1990-04-12" maxlength="10">
+      </div>
+      <div class="form-group col-md-2">
+        <label>Sexo</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="sexo" id="m" value="M">
+          <label class="form-check-label" for="m">Masculino</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="sexo" id="f" value="F">
+          <label class="form-check-label" for="f">Feminino</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="empregado">Empregado</label>
+        <select id="empregado" name="empregado" class="form-control">
+          <option selected>Selecione...</option>
+          {% for empregado in empregados %}
+            <option value="{{ empregado.codigo }}">{{ empregado.nome }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+  </form>
+{% endblock %}
