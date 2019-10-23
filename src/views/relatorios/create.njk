@@ -1,0 +1,16 @@
+{% extends "../index.njk" %}
+
+{% block content %}
+  <div class="pricing-header py-3 pb-md-4 mx-auto">
+    <h3 class="display-5">Emissão de relatórios</h3>
+  </div>
+  <form action="/relatorios/store" method="post">
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="sql">Informe a consulta sql</label>  
+        <textarea class="form-control" id="sql" name="sql" rows="3" placeholder="Ex: SELECT * FROM Empregado;" required></textarea>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Gerar relatório</button>
+  </form>
+{% endblock %}

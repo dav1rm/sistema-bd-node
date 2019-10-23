@@ -8,6 +8,7 @@ const DepartamentoController = require("./controllers/DepartamentoController");
 const LocalController = require("./controllers/LocalController");
 const ProjetoController = require("./controllers/ProjetoController");
 const TrabalhaEmController = require("./controllers/TrabalhaEmController");
+const RelatorioController = require("./controllers/RelatorioController");
 
 routes.get("/empregados", EmpregadoController.index);
 routes.get("/empregados/create", EmpregadoController.create);
@@ -41,5 +42,10 @@ routes.get(
   "/trabalhaem/delete/:empregado/:projeto",
   TrabalhaEmController.destroy
 );
+
+routes.get("/", RelatorioController.index);
+routes.get("/relatorios/create", RelatorioController.create);
+routes.post("/relatorios/store", RelatorioController.store);
+routes.get("/relatorios", RelatorioController.index);
 
 module.exports = routes;
