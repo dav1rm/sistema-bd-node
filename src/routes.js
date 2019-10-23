@@ -11,10 +11,12 @@ const DepartamentoController = require("./controllers/DepartamentoController");
 routes.get("/empregados", EmpregadoController.index);
 routes.get("/empregados/create", EmpregadoController.create);
 routes.post("/empregados/store", EmpregadoController.store);
+routes.get("/empregados/delete/:codigo", EmpregadoController.destroy);
 
 routes.get("/dependentes", DependenteController.index);
 routes.get("/dependentes/create", DependenteController.create);
 routes.post("/dependentes/store", DependenteController.store);
+routes.get("/dependentes/delete/:codigo", DependenteController.destroy);
 
 routes.get("/departamentos", DepartamentoController.index);
 routes.get("/departamentos/create", DepartamentoController.create);

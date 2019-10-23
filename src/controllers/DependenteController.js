@@ -31,5 +31,18 @@ class DependenteController {
       return res.redirect("/dependentes");
     } catch (error) {}
   }
+
+  async destroy(req, res) {
+    const { codigo } = req.params;
+
+    const query = `DELETE FROM dependente WHERE codigo = '${codigo}'`;
+
+    try {
+      await executeQuery(query);
+
+      // Redirecionando para listagem
+      return res.redirect("/dependentes");
+    } catch (error) {}
+  }
 }
 module.exports = new DependenteController();

@@ -46,5 +46,18 @@ class EmpregadoController {
       return res.redirect("/empregados");
     } catch (error) {}
   }
+
+  async destroy(req, res) {
+    const { codigo } = req.params;
+
+    const query = `DELETE FROM empregado WHERE codigo = '${codigo}'`;
+
+    try {
+      await executeQuery(query);
+
+      // Redirecionando para listagem
+      return res.redirect("/empregados");
+    } catch (error) {}
+  }
 }
 module.exports = new EmpregadoController();
