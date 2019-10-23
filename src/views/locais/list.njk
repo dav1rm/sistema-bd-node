@@ -1,0 +1,28 @@
+{% extends "../index.njk" %}
+
+{% block content %}
+  <div class="pricing-header py-3 pb-md-4 mx-auto  d-flex flex-row justify-content-between">
+    <h3 class="display-5">Listagem de Locais</h3>
+    <a href="/locais/create" class="btn btn-primary">Cadastrar</a>
+  </div>
+  <table class="table table-sm">
+    <thead>
+      <tr>
+        {% for field in data.fields %}
+          <th scope="col">{{ field.name }}</th>
+        {% endfor %}
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in data.rows %}
+        <tr>
+          {% for field in data.fields %}
+            <td scope="row">{{ row[field.name] }}</th>
+          {% endfor %}
+          <td scope="row"><a href="/locais/delete/{{ row.nome }}/{{ row.departamento }}" class="btn btn-danger">Excluir</a></th>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

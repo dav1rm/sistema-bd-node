@@ -5,7 +5,7 @@ const routes = express.Router();
 const EmpregadoController = require("./controllers/EmpregadoController");
 const DependenteController = require("./controllers/DependenteController");
 const DepartamentoController = require("./controllers/DepartamentoController");
-// const LocalController = require("./controllers/LocalController");
+const LocalController = require("./controllers/LocalController");
 // const ProjetoController = require("./controllers/ProjetoController");
 
 routes.get("/empregados", EmpregadoController.index);
@@ -22,4 +22,10 @@ routes.get("/departamentos", DepartamentoController.index);
 routes.get("/departamentos/create", DepartamentoController.create);
 routes.post("/departamentos/store", DepartamentoController.store);
 routes.get("/departamentos/delete/:codigo", DepartamentoController.destroy);
+
+routes.get("/locais", LocalController.index);
+routes.get("/locais/create", LocalController.create);
+routes.post("/locais/store", LocalController.store);
+routes.get("/locais/delete/:nome/:departamento", LocalController.destroy);
+
 module.exports = routes;
