@@ -1,0 +1,34 @@
+{% extends "../index.njk" %}
+
+{% block content %}
+  <div class="pricing-header py-3 pb-md-4 mx-auto">
+    <h3 class="display-5">Vínculo de Empregados a Projetos (Trabalha em)</h3>
+  </div>
+  <form action="/trabalhaem/store" method="post">
+    <div class="form-row">
+      <div class="form-group col-md-2">
+        <label for="horas">Horas</label>
+        <input type="number" class="form-control" id="horas" name="horas" placeholder="Ex: 2.0">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="empregado">Empregado</label>
+        <select id="empregado" name="empregado" class="form-control">
+          <option selected>Selecione...</option>
+          {% for empregado in empregados %}
+            <option value="{{ empregado.codigo }}">{{ empregado.nome }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="projeto">Projeto</label>
+        <select id="projeto" name="projeto" class="form-control">
+          <option selected>Selecione...</option>
+          {% for projeto in projetos %}
+            <option value="{{ projeto.codigo }}">{{ projeto.descricao }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Vincular</button>
+  </form>
+{% endblock %}
